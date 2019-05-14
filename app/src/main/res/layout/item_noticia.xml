@@ -9,7 +9,7 @@
     android:foreground="?android:attr/selectableItemBackground"
     android:padding="8dp"
     tools:ignore="UnusedAttribute"
-    tools:showIn="@layout/activity_lista_noticias">
+    tools:showIn="@layout/activity_noticias">
 
     <TextView
         android:id="@+id/item_noticia_titulo"
