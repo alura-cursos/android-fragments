@@ -28,6 +28,13 @@ class VisualizaNoticiaActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_visualiza_noticia)
         title = TITULO_APPBAR
+        val transacao = supportFragmentManager.beginTransaction()
+        val fragment = VisualizaNoticiaFragment()
+        val dados = Bundle()
+        dados.putLong(NOTICIA_ID_CHAVE, noticiaId)
+        fragment.arguments = dados
+        transacao.add(R.id.activity_visualiza_noticia_container, fragment)
+        transacao.commit()
     }
 
     override fun onAttachFragment(fragment: Fragment?) {
