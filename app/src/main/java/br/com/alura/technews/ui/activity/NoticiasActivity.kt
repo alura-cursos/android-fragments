@@ -1,6 +1,7 @@
 package br.com.alura.technews.ui.activity
 
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -60,8 +61,13 @@ class NoticiasActivity : AppCompatActivity() {
         dados.putLong(NOTICIA_ID_CHAVE, noticia.id)
         fragment.arguments = dados
         transacaoFragment {
-            addToBackStack(null)
-            replace(R.id.activity_noticias_container_secundario, fragment)
+            val container = if(resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE){
+                R.id.activity_noticias_container_secundario
+            } else {
+                addToBackStack(null)
+                R.id.activity_noticias_container_primario
+            }
+            replace(container, fragment)
         }
     }
 
